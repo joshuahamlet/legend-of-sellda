@@ -1,0 +1,49 @@
+.cart-container {
+    height: 90vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 10%;
+}
+
+.cart-list {
+    margin-right: 100px;
+    align-self: flex-start; 
+}
+
+.cart-list-divider {
+    width: 100%;
+    height: 5px;
+    background-color: black;
+    margin-bottom: 30px;
+    margin-top: 10px;
+
+}
+
+.cart-total {
+    background-color: black;
+    align-self: flex-start;
+    display: flex;
+    flex-direction: column;
+    height: 20%;
+    width: 20%;
+    border-radius: 15px;
+}
+
+.cart-total-title {
+    margin: 10px 20px;
+}
+
+.cart-total-item {
+    font-size: 16px;
+    margin: 0px 20px;
+}
+
+.cart-total-amount {
+    margin: 5px 20px;
+}
+
+.cart-total button {
+    margin: 5px 20px;
+}

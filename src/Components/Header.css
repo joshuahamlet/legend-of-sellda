@@ -1,0 +1,31 @@
+.headerContainer {
+    color: rgb(240, 240, 240);
+    background-color: rgb(29, 29, 29);
+    font-size: 20px;
+    height: 10vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-sizing: border-box;
+}
+
+.headerLeft {
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+}
+
+.headerRight {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.headerRight > * {
+    margin-right: 10px;
+}
+
+.headerLeft > * {
+    margin-left: 10px;
+}
+

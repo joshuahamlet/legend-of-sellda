@@ -1,0 +1,15 @@
+.checkout-pipeline {
+    display: flex;
+    justify-content: space-between;
+    width: 40rem;
+}
+
+.checkout-pipeline > div {
+    border-top: .3rem rgb(240, 240, 240) solid;
+    color: rgb(240, 240, 240);
+}
+
+.checkout-pipeline > div.active {
+    border-top: .3rem #f08000 solid;
+    color: #f08000;
+}

@@ -1,0 +1,17 @@
+.shipping-container {
+    height: 90vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.shipping-form-card {
+    color: rgb(240, 240, 240);
+    background-color: rgb(29, 29, 29);
+    border-radius: 15px;
+    margin: 10px;
+    height: 100%;
+    width: 100%;
+}

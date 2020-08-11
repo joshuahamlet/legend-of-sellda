@@ -1,0 +1,36 @@
+.edit-container {
+    min-height: 90vh;
+    width: 100%;
+}
+
+.edit-container input {
+    margin: 15px 25px;
+}
+
+.edit-item-card-image {
+    height: 45%;
+    width: 40%
+}
+
+.edit-item-card-row {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin: 20px 10px 20px 10px;
+}
+
+.edit-item-card {
+    min-width: 325px;
+    max-width: 1025px;
+    display: flex;
+    flex-direction: row;
+    margin: 15px 25px;
+    color: rgb(240, 240, 240);
+    background-color: rgb(29, 29, 29);
+    border-radius: 15px;
+}
+
+.edit-item-card th, .edit-item-card td {
+    padding: 7px 10px;
+    text-align: left;
+}
