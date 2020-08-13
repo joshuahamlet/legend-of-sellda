@@ -1,6 +1,6 @@
 {
   "name": "legend-of-selda",
-  "proxy": "https://legend-of-selda.herokuapp.com",
+  "proxy": "https://legend-of-sellda.herokuapp.com",
   "version": "0.1.0",
   "private": true,
   "dependencies": {

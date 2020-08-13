@@ -1,9 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux'
-import { Link } from 'react-router-dom';
 import { listProducts } from '../Actions/productAction';
 import { PRODUCT_LIST_REQUEST } from '../Constants/productConstant';
-import { AnimatePresence, motion } from 'framer-motion'
+import { motion } from 'framer-motion'
 import EditModal from '../Components/EditModal'
 import './EditView.css'
 

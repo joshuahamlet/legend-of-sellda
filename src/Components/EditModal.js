@@ -6,9 +6,8 @@ import { useDispatch, useSelector } from 'react-redux'
 
 
 
-const EditModal = ({ editModal, setEditModal, editModalHandler, editData }) => {
+const EditModal = ({ editModal, editModalHandler, editData }) => {
 
-    const [editDataId, setEditDataId] = useState(editData._id);
     const [editDataName, setEditDataName] = useState(editData.name);
     useEffect(() => { setEditDataName(editData.name)}, [editData.name] )
 
