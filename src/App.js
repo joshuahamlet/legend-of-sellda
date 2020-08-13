@@ -21,7 +21,7 @@ function App() {
     <div className="App">
           <Header />
       <div className="App-container">
-        <AnimatePresence initial={false} exitBeforeEnter>
+        <AnimatePresence initial={true} exitBeforeEnter>
             <Switch location={location} key={location.key}>
                 <Route path="/" exact component={HomeView} />
                 <Route path="/edit" component={EditView} />
