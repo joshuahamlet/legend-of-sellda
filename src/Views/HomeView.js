@@ -85,6 +85,7 @@ const HomeView = (props) => {
         animate="visible1"
         exit="exit"
         >
+        {console.log("PRODUCTS", products)}
           {products.map(product => 
             product.productType === "clothing" &&
                 <div className="item-card" key={product._id}>
