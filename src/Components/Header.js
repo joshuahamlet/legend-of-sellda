@@ -15,7 +15,7 @@ const Header = () => {
     return (
         <div className="headerContainer">
             <div className="headerLeft">
-                <Link to={"/"}>LEGEND_OF_SELLDA</Link>
+                <Link className="header-title" to={"/"}>LEGEND_OF_SELLDA</Link>
             </div>
             <div className="headerRight">
                 {!userInfo ? "" : 

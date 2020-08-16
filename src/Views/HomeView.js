@@ -5,8 +5,11 @@ import { listProducts } from '../Actions/productAction';
 import { PRODUCT_LIST_REQUEST } from '../Constants/productConstant';
 import { motion } from 'framer-motion'
 import tunic from '../tunic.png'
+import bomb from '../bomb.png'
+import shield from '../shield.png'
 import { GiCutDiamond } from 'react-icons/gi'
 import './HomeView.css'
+import Loader from '../Components/Loader'
 
 const HomeView = (props) => {
 
@@ -62,14 +65,11 @@ const HomeView = (props) => {
     
 
     return loading ? 
-        <div>
-            Hol' up...
-        </div> :
+        <Loader/>:
         
         error ? <div>{error}</div> :
 
         <div className="home-container">
-
         <motion.div className="item-card-title"
         variants={containerVariants}
         initial="hiddenFade"
@@ -85,11 +85,10 @@ const HomeView = (props) => {
         animate="visible1"
         exit="exit"
         >
-        {console.log("PRODUCTS", products)}
           {products.map(product => 
             product.productType === "clothing" &&
                 <div className="item-card" key={product._id}>
-                    <img src={tunic} className="item-card-image" alt="Product" />
+                    <img src={shield} className="item-card-image" alt="Product" />
                     <Link to={'/products/' + product._id}>
                         <li key={product._id}>{product.name}</li>
                     </Link>
@@ -143,7 +142,7 @@ const HomeView = (props) => {
           {products.map(product => 
             product.productType === "potion" &&
                 <div className="item-card" key={product._id}>
-                    <img src={tunic} className="item-card-image" alt="Product" />
+                    <img src={bomb} className="item-card-image" alt="Product" />
                     <Link to={'/products/' + product._id}>
                         <li key={product._id}>{product.name}</li>
                     </Link>

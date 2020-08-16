@@ -57,7 +57,7 @@ function SigninView(props) {
         >
           <ul className="form-card">
             <li>
-              <h2>Sign-In</h2>
+              <h2>SIGN IN</h2>
             </li>
             <li>
               {loading && <div>Loading...</div>}

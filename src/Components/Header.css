@@ -1,3 +1,8 @@
+.header-title {
+    font-family: 'alagard';
+    font-size: 4rem;
+}
+
 .headerContainer {
     color: rgb(240, 240, 240);
     background-color: rgb(29, 29, 29);

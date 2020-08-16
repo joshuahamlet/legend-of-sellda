@@ -5,6 +5,7 @@ import { addToCart } from '../Actions/cartAction'
 import { PRODUCT_DETAIL_REQUEST } from '../Constants/productConstant';
 import { motion } from 'framer-motion'
 import { GiCutDiamond } from 'react-icons/gi'
+import Loader from '../Components/Loader'
 import tunic from '../tunic.png'
 import './ProductView.css'
 
@@ -45,7 +46,7 @@ const ProductView = (props) => {
     }
     
     return ( 
-        loading ? <div>Just a sec...</div> :
+        loading ? <Loader/> :
         error ? <div>{error}</div> :
 
         <div className="product-container">
@@ -57,8 +58,7 @@ const ProductView = (props) => {
             exit="exit"
         >
           
-          <img src={tunic} className="product-card-image" alt="Product" />
-              
+          <img src={tunic} className="item-card-image" alt="Product" />
           <div className="product-card-name">
             {details.name}
           </div>
