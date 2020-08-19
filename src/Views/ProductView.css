@@ -7,20 +7,20 @@
 }
 
 .product-card {
-    color: rgb(240, 240, 240);
-    background-color: rgb(29, 29, 29);
+    color: var(--golden-1);
+    background-color: var(--purple-3);
     border-radius: 15px;
     margin: 10px;
     height: 60%;
     max-width: 500px;
     display: grid;
-    grid-template-columns: repeat(11, 1fr);
+    grid-template-columns: repeat(12, 1fr);
     grid-column-gap: 5px;
-    grid-template-rows: repeat(11, 1fr);   
+    grid-template-rows: repeat(12, 1fr);   
     grid-row-gap: 5px;
     padding: 10px;
-    border: 10px solid transparent;
-    border-image: url('../border1.png') 35% round;
+    border: 15px solid transparent;
+    border-image: url('../border-item.png') 9 12 9 12 stretch;
     image-rendering: pixelated;
 }
 
@@ -31,38 +31,39 @@
     justify-self: start;
     align-self: start;
     overflow: hidden;
+    filter: drop-shadow(0px 0px 15px var(--purple-1));
 }
 
 .product-card-name {
-    grid-column: 7 / 11;
+    grid-column: 8 / 12;
     grid-row: 2 / 3;
     align-self: start;
     justify-self: start;
 }
 
 .product-card-price {
-    grid-column: 7 / 11;
+    grid-column: 8 / 12;
     grid-row: 3 / 4;
     align-self: start;
     justify-self: start;
 }
 
 .product-card-rating {
-    grid-column: 7 / 11;
+    grid-column: 8 / 12;
     grid-row: 4 / 5;
     align-self: start;
     justify-self: start;
 }
 
 .product-card-quantity {
-    grid-column: 7 / 11;
+    grid-column: 8 / 12;
     grid-row: 5 / 6;
     align-self: start;
     justify-self: start;
 }
 
 .product-card-order {
-    grid-column: 7 / 11;
+    grid-column: 8 / 12;
     grid-row: 6 / 7;
     align-self: start;
     justify-self: start;

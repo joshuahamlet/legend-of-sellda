@@ -48,3 +48,10 @@ button {
   border-image: url('./border1.png') 35% stretch;
   image-rendering: pixelated;
 }
+
+:root {
+  --purple-1: #545487;
+  --purple-2: #42427F;
+  --purple-3: #1A1A39;
+  --golden-1: #FFC774;
+}

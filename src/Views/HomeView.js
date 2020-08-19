@@ -78,7 +78,7 @@ const HomeView = (props) => {
         animate="visibleFade"
         exit="exitFade"
         >
-            Clothing
+            CLOTHING
         </motion.div>
         
         <motion.div className="item-card-row"
@@ -89,13 +89,13 @@ const HomeView = (props) => {
         >
           {products.map(product => 
             product.productType === "clothing" &&
+            <Link to={'/products/' + product._id}>
                 <div className="item-card" key={product._id}>
                     <img src={product.image} className="item-card-image" alt="Product" />
-                    <Link to={'/products/' + product._id}>
                         <li key={product._id}>{product.name}</li>
-                    </Link>
                     <div>Price: <GiCutDiamond/> {product.price} </div>
                 </div>    
+            </Link>
           )}
         </motion.div>
 
@@ -105,7 +105,7 @@ const HomeView = (props) => {
         animate="visibleFade"
         exit="exitFade"
         >
-            Weapons
+            WEAPONS
         </motion.div>
 
         <motion.div className="item-card-row"
@@ -116,13 +116,13 @@ const HomeView = (props) => {
         >
           {products.map(product => 
             product.productType === "weapon" &&
+            <Link to={'/products/' + product._id}>
                 <div className="item-card" key={product._id}>
                     <img src={product.image} className="item-card-image" alt="Product" />
-                    <Link to={'/products/' + product._id}>
                         <li key={product._id}>{product.name}</li>
-                    </Link>
                     <div>Price: <GiCutDiamond/> {product.price} </div>
                 </div>    
+            </Link>
           )}
         </motion.div>
 
@@ -132,7 +132,7 @@ const HomeView = (props) => {
         animate="visibleFade"
         exit="exitFade"
         >
-            Potions
+            POTIONS
         </motion.div>
 
         <motion.div className="item-card-row"
@@ -143,13 +143,13 @@ const HomeView = (props) => {
         >
           {products.map(product => 
             product.productType === "potion" &&
+            <Link to={'/products/' + product._id}>
                 <div className="item-card" key={product._id}>
                     <img src={product.image} className="item-card-image" alt="Product" />
-                    <Link to={'/products/' + product._id}>
                         <li key={product._id}>{product.name}</li>
-                    </Link>
                     <div>Price: <GiCutDiamond/> {product.price} </div>
                 </div>    
+            </Link>
           )}
         </motion.div>
 

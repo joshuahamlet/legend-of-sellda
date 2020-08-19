@@ -15,14 +15,14 @@
 .cart-list-divider {
     width: 100%;
     height: 5px;
-    background-color: black;
+    background-color: var(--purple-3);
     margin-bottom: 30px;
     margin-top: 10px;
 
 }
 
 .cart-total {
-    background-color: black;
+    background-color: var(--purple-3);
     align-self: flex-start;
     display: flex;
     flex-direction: column;

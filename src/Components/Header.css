@@ -19,6 +19,7 @@
     justify-content: space-between;
     align-items: center;
     box-sizing: border-box;
+    border: 7px  #7D5846;
 }
 
 .headerLeft {
