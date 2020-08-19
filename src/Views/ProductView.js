@@ -6,7 +6,6 @@ import { PRODUCT_DETAIL_REQUEST } from '../Constants/productConstant';
 import { motion } from 'framer-motion'
 import { GiCutDiamond } from 'react-icons/gi'
 import Loader from '../Components/Loader'
-import tunic from '../tunic.png'
 import './ProductView.css'
 
 const ProductView = (props) => {
@@ -58,7 +57,7 @@ const ProductView = (props) => {
             exit="exit"
         >
           
-          <img src={tunic} className="item-card-image" alt="Product" />
+          <img src={details.image} className="product-card-image" alt="Product" />
           <div className="product-card-name">
             {details.name}
           </div>

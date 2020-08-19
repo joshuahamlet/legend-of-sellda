@@ -14,4 +14,34 @@
     margin: 10px;
     height: 60%;
     width: 65%;
+    padding: 10px;
+    border: 10px solid transparent;
+    border-image: url('../border1.png') 35% round;
+    image-rendering: pixelated;
+}
+
+.form-card form div {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-card input {
+    font-family: inherit;
+    font-size: 20px;
+    background-color: rgb(29, 29, 29);
+    color: rgb(240, 240, 240);
+    padding: 0px 10px;
+    border: 10px solid transparent;
+    border-image: url('../border1.png') 35% round;
+    image-rendering: pixelated;
+}
+
+.form-error {
+    color: red;
+}
+
+.form-button {
+    background-color: rgb(29, 29, 29);
+    color: rgb(240, 240, 240);
+    font-size: 26px;
 }

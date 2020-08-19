@@ -7,14 +7,28 @@
 
 .App-container {
   background-color: #464b55;
+  background-image: url(./background3.png);
+  background-repeat: repeat;
   min-height: 90vh;
   display: flex;
   font-size: calc(10px + 2vmin);
-  color: white;
+  color: #FFE493;
+}
+
+@media screen and (max-width: 725px) {
+  .App-container {
+    background-image: url(./background2.png);
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .App-container {
+    background-image: url(./background1.png);
+  }
 }
 
 .App-link {
-  color: #61dafb;
+  color: #FFE493;
 }
 
 @keyframes App-logo-spin {
@@ -24,4 +38,13 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+button {
+  font-size: 20px;
+  font-family: inherit;
+  outline: none;
+  border: 10px solid transparent;
+  border-image: url('./border1.png') 35% stretch;
+  image-rendering: pixelated;
 }

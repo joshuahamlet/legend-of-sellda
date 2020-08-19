@@ -17,6 +17,7 @@ const Header = () => {
             <div className="headerLeft">
                 <Link className="header-title" to={"/"}>LEGEND_OF_SELLDA</Link>
             </div>
+            <div className="header-hamburger"><button><div className="header-hamburger-arrow">&lt;</div></button></div>
             <div className="headerRight">
                 {!userInfo ? "" : 
                  !userInfo.isAdmin ? "" :
