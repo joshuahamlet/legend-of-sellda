@@ -1,9 +1,9 @@
 .nes-container {
     position: relative;
     margin: 4px;
-    color: #fff;
-    background-color: #212529;
-    border-color: #fff;
+    color: var(--golden-1);
+    background-color: var(--purple-3);
+    border-color: var(--golden-1);
     padding: 1.5rem 2rem;
     border-style: solid;
     border-width: 4px;
@@ -15,8 +15,8 @@
     padding: 0 .5rem;
     margin: -1.8rem 0 1rem;
     font-size: 1rem;
-    color: #fff;
-    background-color: #212529;
+    color: var(--golden-1);
+    background-color: var(--purple-3);
 }
 
 
@@ -28,13 +28,13 @@
     left: -7.2px;
     z-index: -1;
     content: "";
-    background-color: #212529;
+    background-color: var(--purple-3);
     box-sizing: border-box
 }  
 
 .nes-container-rounded {
     position: relative;
-    border-color: #fff;
+    border-color: var(--golden-1);
     border: 10px solid transparent;
     padding: 20px;
     border-image: url('../border1.png') 35% stretch;

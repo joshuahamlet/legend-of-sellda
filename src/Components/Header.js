@@ -20,20 +20,20 @@ const Header = () => {
     }
 
     const headerVariants = {
-        hidden: {
-            opacity: 0,
+        headerHidden: {
             x: '100vw'
         },
-        visible: {
-            opacity: 1,
+        headerVisible: {
             x: '0vw',
-            transition: { delay: .1, duration: .75 }
+            transition: { type: "spring", stiffness: 100 }
         },
-        exit: {
+        headerExit: {
             x: '100vw',
-            transition: { delay: .1, duration: .75 },
-            opacity: 0
-        },
+            transition: { type: "spring", stiffness: 100 },
+        }
+    }
+
+    const headerBackdropVariants ={
         hiddenFade: {
             opacity: 0
         },
@@ -47,12 +47,54 @@ const Header = () => {
         }
     }
 
+    const hamburgerVariants = {
+        bar1Start: {
+            rotate: 0, 
+            y: 0
+        },
+        bar2Start: {
+            opacity: 1
+        },
+        bar3Start: {
+            rotate: 0, 
+            y: 0
+        },
+        bar1End: {
+            rotate: -45, 
+            y: 6
+        },
+        bar2End: {
+            opacity: 0
+        },
+        bar3End: {
+            rotate: 45, 
+            y: -16
+        }
+
+
+    }
+
     return (
         <div className="headerContainer">
             <div className="headerLeft">
                 <Link className="header-title" to={"/"}>LEGEND_OF_SELLDA</Link>
             </div>
-            <div className="header-hamburger"><button onClick={hamburgerToggleHandler}><div className="header-hamburger-arrow">&lt;</div></button></div>
+            <div className="header-hamburger">
+                <div className="hamburger-toggle-button" onClick={hamburgerToggleHandler}>
+                    <motion.div className="ham-bar-1"
+                    variants={hamburgerVariants}
+                    initial={!hamburgerToggle ? "bar1Start" : "bar1End"}
+                    animate={!hamburgerToggle ? "bar1Start" : "bar1End"} />
+                    <motion.div className="ham-bar-2"
+                    variants={hamburgerVariants}
+                    initial={!hamburgerToggle ? "bar2Start" : "bar2End"}
+                    animate={!hamburgerToggle ? "bar2Start" : "bar2End"} />
+                    <motion.div className="ham-bar-3"
+                     variants={hamburgerVariants}
+                     initial={!hamburgerToggle ? "bar3Start" : "bar3End"}
+                     animate={!hamburgerToggle ? "bar3Start" : "bar3End"} />
+                </div>
+            </div>
             <div className="headerRight">
                 {!userInfo ? "" : 
                  !userInfo.isAdmin ? "" :
@@ -68,28 +110,36 @@ const Header = () => {
             </div>
             <AnimatePresence exitBeforeEnter>
             {hamburgerToggle &&
+                <>
+                
                 <motion.div className="hamburger-toggle-backdrop"
-                variants={headerVariants}
+                variants={headerBackdropVariants}
                 initial="hiddenFade"
                 animate="visibleFade"
                 exit="exitFade"
                 onClick={hamburgerToggleHandler}>
+                </motion.div>
                 <motion.div className="hamburger-toggle"
                 variants={headerVariants}
-                initial="hidden"
-                animate="visible"
-                exit="exit"
+                initial="headerHidden"
+                animate="headerVisible"
+                exit="headerExit"
                 onClick={hamburgerToggleHandler}>
+                    <div className="nes-container">
+                <p className="nes-title">MENU</p>
                     STUFF
-                    <Link to={"/edit"}><BsPencilSquare /></Link>
-                    <Link to={"/cart/:id?"}><FaShoppingCart /></Link>
+                    <Link to={"/"}>HOME</Link>
+                    <Link to={"/edit"}>EDIT</Link>
+                    <Link to={"/cart/:id?"}>CART</Link>
                     {
                     userInfo ? <div>{userInfo.name}</div> :
                     userInfoNew ? <div>{userInfoNew.name}</div> :
                     <Link to={'/signin'} >SIGN IN</Link>
                 }
+                </div>
                 </motion.div>
-                </motion.div>
+                
+                </>
             }
             </AnimatePresence>
         </div>
