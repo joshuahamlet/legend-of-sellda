@@ -25,8 +25,8 @@
     display: flex;
     flex-direction: row;
     margin: 15px 25px;
-    color: rgb(240, 240, 240);
-    background-color: rgb(29, 29, 29);
+    color: var(--golden-1);
+    background-color: var(--purple-3);
     border-radius: 15px;
 }
 

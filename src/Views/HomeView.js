@@ -4,8 +4,7 @@ import { Link } from 'react-router-dom';
 import { listProducts } from '../Actions/productAction';
 import { PRODUCT_LIST_REQUEST } from '../Constants/productConstant';
 import { motion } from 'framer-motion'
-
-import { GiCutDiamond } from 'react-icons/gi'
+import rupee from '../rupee.png'
 import './HomeView.css'
 import Loader from '../Components/Loader'
 
@@ -89,11 +88,11 @@ const HomeView = (props) => {
         >
           {products.map(product => 
             product.productType === "clothing" &&
-            <Link to={'/products/' + product._id}>
-                <div className="item-card" key={product._id}>
+            <Link to={'/products/' + product._id} key={product._id}>
+                <div className="item-card" >
                     <img src={product.image} className="item-card-image" alt="Product" />
                         <li key={product._id}>{product.name}</li>
-                    <div>Price: <GiCutDiamond/> {product.price} </div>
+                    <div>Price: <img className="rupee" src={rupee} alt="rupee" /> {product.price} </div>
                 </div>    
             </Link>
           )}
@@ -116,11 +115,11 @@ const HomeView = (props) => {
         >
           {products.map(product => 
             product.productType === "weapon" &&
-            <Link to={'/products/' + product._id}>
-                <div className="item-card" key={product._id}>
+            <Link to={'/products/' + product._id} key={product._id}>
+                <div className="item-card" >
                     <img src={product.image} className="item-card-image" alt="Product" />
                         <li key={product._id}>{product.name}</li>
-                    <div>Price: <GiCutDiamond/> {product.price} </div>
+                    <div>Price: <img className="rupee" src={rupee} alt="rupee" /> {product.price} </div>
                 </div>    
             </Link>
           )}
@@ -143,11 +142,11 @@ const HomeView = (props) => {
         >
           {products.map(product => 
             product.productType === "potion" &&
-            <Link to={'/products/' + product._id}>
-                <div className="item-card" key={product._id}>
+            <Link to={'/products/' + product._id} key={product._id}>
+                <div className="item-card" >
                     <img src={product.image} className="item-card-image" alt="Product" />
                         <li key={product._id}>{product.name}</li>
-                    <div>Price: <GiCutDiamond/> {product.price} </div>
+                    <div>Price: <img className="rupee" src={rupee} alt="rupee" /> {product.price} </div>
                 </div>    
             </Link>
           )}
@@ -159,11 +158,3 @@ const HomeView = (props) => {
 
 export default HomeView
 
-/*
-<motion.div 
-            variants={loadingVariants}
-            initial="hidden"
-            animate="visible"
-            exit="exit">
-
-*/ 

@@ -8,8 +8,8 @@
 
 
 .form-card {
-    color: rgb(240, 240, 240);
-    background-color: rgb(29, 29, 29);
+    color: var(--golden-1);
+    background-color: var(--purple-3);
     border-radius: 15px;
     margin: 10px;
     height: 60%;
@@ -28,8 +28,8 @@
 .form-card input {
     font-family: inherit;
     font-size: 20px;
-    background-color: rgb(29, 29, 29);
-    color: rgb(240, 240, 240);
+    background-color: var(--purple-3);
+    color: var(--golden-1);
     padding: 0px 10px;
     border: 10px solid transparent;
     border-image: url('../border1.png') 35% round;
@@ -41,7 +41,7 @@
 }
 
 .form-button {
-    background-color: rgb(29, 29, 29);
-    color: rgb(240, 240, 240);
+    background-color: var(--purple-3);
+    color: var(--golden-1);
     font-size: 26px;
 }

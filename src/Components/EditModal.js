@@ -22,21 +22,12 @@ const EditModal = ({ editModal, editModalHandler, editData }) => {
             x: '100vw',
             y: '-50%'
         },
-        visible1: {
-            opacity: 1,
-            x: '0vw',
-            transition: { delay: .1, duration: .75 }
-        },
+        
         visible2: {
             opacity: 1,
             x: '-50%',
             y: '-50%',
             transition: { delay: .2, duration: .75 }
-        },
-        visible3: {
-            opacity: 1,
-            x: '0vw',
-            transition: { delay: .3, duration: .75 }
         },
         exit: {
             x: '-100vw',
