@@ -72,12 +72,14 @@ const Header = () => {
                 variants={headerVariants}
                 initial="hiddenFade"
                 animate="visibleFade"
-                exit="exitFade">
+                exit="exitFade"
+                onClick={hamburgerToggleHandler}>
                 <motion.div className="hamburger-toggle"
                 variants={headerVariants}
                 initial="hidden"
                 animate="visible"
-                exit="exit">
+                exit="exit"
+                onClick={hamburgerToggleHandler}>
                     STUFF
                     <Link to={"/edit"}><BsPencilSquare /></Link>
                     <Link to={"/cart/:id?"}><FaShoppingCart /></Link>
