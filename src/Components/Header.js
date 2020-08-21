@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { FaShoppingCart, FaHome } from 'react-icons/fa'
 import { BsPencilSquare } from 'react-icons/bs'
@@ -16,8 +16,18 @@ const Header = () => {
 
     const hamburgerToggleHandler = () => {
         setHamburgerToggle(!hamburgerToggle)
-        console.log(hamburgerToggle)
     }
+
+    useEffect(() => {
+        let windowOffset = window.scrollY
+        console.log(hamburgerToggle)
+        if (hamburgerToggle) {
+            document.body.setAttribute('style', `position: fixed; top: -${windowOffset}px; left: 0; right: 0`)
+        } else {
+            document.body.setAttribute('style', '')
+            window.scrollTo(0, windowOffset)
+        }
+    }, [hamburgerToggle])
 
     const headerVariants = {
         headerHidden: {
