@@ -134,13 +134,13 @@ const Header = () => {
                 initial="headerHidden"
                 animate="headerVisible"
                 exit="headerExit"
-                onClick={hamburgerToggleHandler}>
+                >
                     <div className="nes-container">
                 <p className="nes-title">MENU</p>
                     STUFF
-                    <Link to={"/"}>HOME</Link>
-                    <Link to={"/edit"}>EDIT</Link>
-                    <Link to={"/cart/:id?"}>CART</Link>
+                    <Link to={"/"} onClick={hamburgerToggleHandler}>HOME</Link>
+                    <Link to={"/edit"} onClick={hamburgerToggleHandler}>EDIT</Link>
+                    <Link to={"/cart/:id?"} onClick={hamburgerToggleHandler}>CART</Link>
                     {
                     userInfo ? <div>{userInfo.name}</div> :
                     userInfoNew ? <div>{userInfoNew.name}</div> :
