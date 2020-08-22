@@ -3,13 +3,12 @@ import { Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { register } from '../Actions/userAction';
 import { motion } from 'framer-motion'
+import { Formik, Form, Field, ErrorMessage } from 'formik'
+import * as Yup from 'yup'
 import './RegisterView.css'
 
 function RegisterView(props) {
 
-  const [name, setName] = useState('');
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
   const [rePassword, setRePassword] = useState('');
   const userRegister = useSelector(state => state.userRegister);
   const { loading, userInfoNew, error } = userRegister;
@@ -25,11 +24,21 @@ function RegisterView(props) {
     };
   }, [userInfoNew, props.history, redirect]);
 
-  const submitHandler = (e) => {
-    e.preventDefault();
-    dispatch(register(name, email, password));
-  }
+////////////////////////////////////////////////////////////////
+  const validationSchema = Yup.object({
+    name: Yup.string().min(6, "Must be at least 6 characters").required('Required'),
+    email: Yup.string().email('Invalid email format').required('Required'),
+    password: Yup.string().required('Required'),
+    repassword: Yup.string().matches(rePassword, { message: "Passwords must match"})
+  })
 
+const initialValues = {
+  name: '',
+  email: '',
+  password: ''
+}
+////////////////////////////////////////////////////////////////
+console.log("reSETPASSWORD", rePassword)
   const containerVariants = {
     hidden: {
         opacity: 0,
@@ -46,55 +55,113 @@ function RegisterView(props) {
     }
   }
 
+
   return (
 
-    <div className="form-container">
+  <div className="form-container" >
 
-        <motion.form onSubmit={submitHandler} 
+    <motion.div className="form-card" 
         variants={containerVariants}
         initial="hidden"
         animate="visible"
         exit="exit"
+    >  
+    <Formik
+      initialValues={initialValues}
+      validationSchema={validationSchema}
+      onSubmit={
+        (values, { setSubmitting, resetForm }) => {
+        console.log(values)
+        dispatch(register(values.name, values.email, values.password))
+        setSubmitting(true)
+        resetForm()
+      }}
+      enableReinitialize
+    >
+    {  
+    formik => {
+      setRePassword(formik.values.password)
+      console.log(formik)
+      console.log("rePassword", rePassword)
+      console.log(formik.values.name)
+      console.log(formik.values.email)
+      return <Form autoComplete="off">
+      <h2>REGISTER</h2>
+      <li>
+          {loading && <div>Loading...</div>}
+          {error && <div>{error}</div>}
+      </li>
+      <div className='form-control'>
+          <label htmlFor='name'>Name</label>
+          <Field type='name' id='name' name='name' />
+          {
+            !formik.errors.name || !formik.touched.name ?
+            <div >&zwnj;</div> :
+            <ErrorMessage className="form-error" name='name' component='div' />
+          }
+        </div>
+
+        <div className='form-control'>
+          <label htmlFor='email'>Email</label>
+          <Field type='email' id='email' name='email' />
+          {
+            !formik.errors.email || !formik.touched.email ?
+            <div >&zwnj;</div> :
+            <ErrorMessage className="form-error" name='email' component='div' />
+          }
+        </div>
+
+        <div className='form-control'>
+          <label htmlFor='password'>Password</label>
+          <Field type='password' id='password' name='password' />
+          {
+            !formik.errors.password || !formik.touched.password ?
+            <div >&zwnj;</div> :
+            <ErrorMessage className="form-error" name='password' component='div' />
+          }
+        </div>
+
+        <div className='form-control'>
+          <label htmlFor='repassword'>Re-Enter Password</label>
+          <Field type='password' id='repassword' name='repassword' />
+          {
+            !formik.errors.repassword || !formik.touched.repassword ?
+            <div >&zwnj;</div> :
+            <ErrorMessage className="form-error" name='repassword' component='div' />
+          }
+        </div>
+
+        <motion.button 
+        type="submit" 
+        className="form-button" 
+        style={{marginBottom: "10px"}}
+        whileHover={{
+          scale: 1.05,
+          transition: { duration: .25 },
+        }}
         >
-            <ul className="form-card">
-              <li>
-                <h2>Register</h2>
-              </li>
-              <li>
-                {loading && <div>Loading...</div>}
-                {error && <div>{error}</div>}
-              </li>
-              <li>
-                <label htmlFor="name">Name</label>
-                <input type="text" name="name" id="name" onChange={(e) => setName(e.target.value)}>
-                </input>
-              </li>
-              <li>
-                <label htmlFor="email">Email</label>
-                <input type="email" name="email" id="email" onChange={(e) => setEmail(e.target.value)}>
-                </input>
-              </li>
-              <li>
-                <label htmlFor="password">Password</label>
-                <input type="password" id="password" name="password" onChange={(e) => setPassword(e.target.value)}>
-                </input>
-              </li>
-              <li>
-                <label htmlFor="rePassword">Re-Enter Password</label>
-                <input type="password" id="rePassword" name="rePassword" onChange={(e) => setRePassword(e.target.value)}>
-                </input>
-              </li>
-              <li>
-                <button disabled={password === rePassword ? false : true} type="submit" className="button primary">Register</button>
-              </li>
-              <li>
-                Already have an account?
-              </li>
-              <li>
-                <Link to={redirect === "/" ? "signin" : "signin?redirect=" + redirect} className="button secondary text-center" >Sign in</Link>
-              </li>
-            </ul>
-        </motion.form>
+          Create Account
+        </motion.button>
+      </Form>
+      }}
+    </Formik>
+    <div style={{marginBottom: "15px"}}>Already have an account?</div>
+    <motion.div
+    style={{display: 'inline-block'}}
+    whileHover={{
+      scale: [1, 1.04, 1, 1.04],
+      transition: { duration: 1 },
+    }}
+    >
+    <Link 
+    to={redirect === "/" ? "signin" : "signin?redirect=" + redirect} 
+    className="register-link" 
+    >
+      Sign In &#187;&#187;
+    </Link>
+    </motion.div>
+
+    </motion.div>
 
   </div>
 )}

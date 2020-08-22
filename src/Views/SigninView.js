@@ -1,15 +1,14 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { signin } from '../Actions/userAction';
 import { motion } from 'framer-motion'
 import { Formik, Form, Field, ErrorMessage } from 'formik'
+import './RegisterView.css'
 import * as Yup from 'yup'
 
 function SigninView(props) {
 
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
   const userSignin = useSelector(state => state.userSignin);
   const { loading, userInfo, error } = userSignin;
   const dispatch = useDispatch();
@@ -24,11 +23,6 @@ function SigninView(props) {
     };
   }, [userInfo, props.history, redirect]);
 
-  const submitHandler = (e) => {
-    e.preventDefault();
-    dispatch(signin(email, password));
-  }
-
 ////////////////////////////////////////////////////////////////
 const validationSchema = Yup.object({
   email: Yup.string()
@@ -37,17 +31,10 @@ const validationSchema = Yup.object({
   password: Yup.string().required('Required'),
 })
 
-//const [formValues, setFormValues] = useState(null)
-
 const initialValues = {
   email: '',
   password: ''
 }
-
-// const onSubmit = (e, email, password) => {
-//   e.preventDefault();
-//   dispatch(signin(email,password));
-// }
 ////////////////////////////////////////////////////////////////
 
   const containerVariants = {
@@ -68,9 +55,14 @@ const initialValues = {
   
   return (
   
-    <div className="form-container">
+  <div className="form-container">
 
-    <div className="form-card">
+    <motion.div className="form-card"
+      variants={containerVariants}
+      initial="hidden"
+      animate="visible"
+      exit="exit"
+    >
     <Formik
       initialValues={initialValues}
       validationSchema={validationSchema}
@@ -88,63 +80,62 @@ const initialValues = {
       console.log('Formik props', formik)
       console.log(formik.values.email)
       console.log("FOMRVAL",)
-      return <Form>
+      return <Form autoComplete="off">
       <h2>SIGN IN</h2>
+      <li>
+          {loading && <div>Loading...</div>}
+          {error && <div>{error}</div>}
+      </li>
         <div className='form-control'>
           <label htmlFor='email'>Email</label>
           <Field type='email' id='email' name='email' />
-          <ErrorMessage className="form-error" name='email' component='div' />
+          {
+            !formik.errors.email || !formik.touched.email ?
+            <div>&zwnj;</div> :
+            <ErrorMessage className="form-error" name='email' component='div' />
+          }
         </div>
 
         <div className='form-control'>
           <label htmlFor='password'>Password</label>
           <Field type='password' id='password' name='password' />
-          <ErrorMessage className="form-error" name='password' component='div' />
+          {
+            !formik.errors.password || !formik.touched.password ?
+            <div>&zwnj;</div> :
+            <ErrorMessage className="form-error" name='password' component='div' />
+          }
         </div>
-        <button type="submit" className="form-button">Sign in</button>
+        <motion.button 
+        type="submit" 
+        className="form-button" 
+        style={{marginBottom: "10px"}}
+        whileHover={{
+          scale: 1.05,
+          transition: { duration: .25 },
+        }}
+        >
+          Sign in
+        </motion.button>
       </Form>
       }}
     </Formik>
-    <div>Don't have an account?</div>
-    <Link to={redirect === "/" ? "register" : "register?redirect=" + redirect} className="button secondary text-center" >Create your LoS account</Link>
-    </div>
+    <div style={{marginBottom: "15px"}}> Don't have an account?</div>
+    <motion.div
+    style={{display: 'inline-block'}}
+    whileHover={{
+      scale: [1, 1.02, 1, 1.02],
+      transition: { duration: 1 },
+    }}
+    >
+    <Link 
+    to={redirect === "/" ? "register" : "register?redirect=" + redirect} 
+    className="register-link" 
+    >
+      Create your account &#187;&#187;
+    </Link>
+    </motion.div>
 
-
-        <motion.form onSubmit={submitHandler} 
-        variants={containerVariants}
-        initial="hidden"
-        animate="visible"
-        exit="exit"
-        >
-          <ul className="form-card">
-            <li>
-              <h2>SIGN IN</h2>
-            </li>
-            <li>
-              {loading && <div>Loading...</div>}
-              {error && <div>{error}</div>}
-            </li>
-            <li>
-              <label htmlFor="email">Email</label>
-              <input type="email" name="email" id="email" onChange={(e) => setEmail(e.target.value)}>
-              </input>
-            </li>
-            <li>
-              <label htmlFor="password">Password</label>
-              <input type="password" id="password" name="password" onChange={(e) => setPassword(e.target.value)}>
-              </input>
-            </li>
-            <li>
-              <button type="submit" className="button primary">Sign in</button>
-            </li>
-            <li>
-              Don't have an account?
-            </li>
-            <li>
-              <Link to={redirect === "/" ? "register" : "register?redirect=" + redirect} className="button secondary text-center" >Create your LoS account</Link>
-            </li>
-          </ul>
-        </motion.form>
+    </motion.div>
 
   </div>
 )}

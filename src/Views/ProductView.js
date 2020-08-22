@@ -4,7 +4,7 @@ import { detailProducts } from '../Actions/productAction';
 import { addToCart } from '../Actions/cartAction'
 import { PRODUCT_DETAIL_REQUEST } from '../Constants/productConstant';
 import { motion } from 'framer-motion'
-import { GiCutDiamond } from 'react-icons/gi'
+import rupee from '../rupee.png'
 import Loader from '../Components/Loader'
 import './ProductView.css'
 
@@ -63,7 +63,7 @@ const ProductView = (props) => {
           </div>
 
           <div className="product-card-price">
-            Price: <GiCutDiamond/> {details.price} 
+            Price: <img className="rupee" src={rupee} alt="rupee" /> {details.price} 
           </div>
 
           <div className="product-card-rating">

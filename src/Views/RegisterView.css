@@ -12,11 +12,11 @@
     background-color: var(--purple-3);
     border-radius: 15px;
     margin: 10px;
-    height: 60%;
+    height: auto;
     width: 65%;
     padding: 10px;
-    border: 10px solid transparent;
-    border-image: url('../border1.png') 35% round;
+    border: 15px solid transparent;
+    border-image: url('../border-item.png') 9 12 9 12 stretch;
     image-rendering: pixelated;
 }
 
@@ -25,23 +25,57 @@
     flex-direction: column;
 }
 
+.form-card div {
+    margin-bottom: 5px;
+}
+
 .form-card input {
     font-family: inherit;
     font-size: 20px;
     background-color: var(--purple-3);
     color: var(--golden-1);
     padding: 0px 10px;
-    border: 10px solid transparent;
-    border-image: url('../border1.png') 35% round;
-    image-rendering: pixelated;
+    border: 5px solid var(--purple-1);
 }
 
 .form-error {
-    color: red;
+    color: rgb(197, 84, 84);
 }
 
 .form-button {
     background-color: var(--purple-3);
     color: var(--golden-1);
-    font-size: 26px;
+    font-size: 20px;
+}
+
+.form-button:hover {
+    color: white;
+}
+
+button {
+    background-color: var(--purple-1);
+    border: 8px solid transparent;
+    border-image: url('../button-border.png') 8 fill round;
+    image-rendering: pixelated;
+    overflow: hidden;
+    box-sizing: padding-box;
+}
+
+.form-card input {
+    padding: 3px;
+    padding-top: 5px;
+    background-color: var(--purple-3);
+    margin-bottom: 5px;
+}
+
+input {
+    background-color: var(--purple-3);
+}
+
+input:focus {
+    background-color: var(--purple-1);
+}
+
+.register-link:hover {
+    color: white;
 }

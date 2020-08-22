@@ -137,14 +137,13 @@ const Header = () => {
                 >
                     <div className="nes-container">
                 <p className="nes-title">MENU</p>
-                    STUFF
                     <Link to={"/"} onClick={hamburgerToggleHandler}>HOME</Link>
                     <Link to={"/edit"} onClick={hamburgerToggleHandler}>EDIT</Link>
                     <Link to={"/cart/:id?"} onClick={hamburgerToggleHandler}>CART</Link>
                     {
                     userInfo ? <div>{userInfo.name}</div> :
                     userInfoNew ? <div>{userInfoNew.name}</div> :
-                    <Link to={'/signin'} >SIGN IN</Link>
+                    <Link to={'/signin'} onClick={hamburgerToggleHandler}>SIGN IN</Link>
                 }
                 </div>
                 </motion.div>

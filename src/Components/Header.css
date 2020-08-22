@@ -135,7 +135,7 @@
     color: var(--golden-1);
     background-color: var(--purple-3);
     border-color: var(--purple-1);
-    padding: 1.5rem 2rem;
+    padding: 1.5rem 2rem .7rem 2rem;
     border-style: solid;
     border-width: 4px;
     border-image-slice: 3;
@@ -150,6 +150,9 @@
     background-color: var(--purple-3);
 }
 
+.nes-container a {
+    margin-bottom: 10px;
+}
 
 .nes-container::after {
     position: absolute;
