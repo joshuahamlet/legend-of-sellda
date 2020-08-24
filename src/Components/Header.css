@@ -107,15 +107,6 @@
         width: 40px;
         height: 40px;
     }
-
-    .header-hamburger-arrow {
-        color: #FFC774;
-        position: absolute;
-        top: -2px;
-        left: 3px;
-        font-size: 30px;
-
-    }
 }
 
 .nes-container {

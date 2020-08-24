@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { patchProduct } from '../Actions/productAction'
-import './EditModal.css'
 import { useDispatch, useSelector } from 'react-redux'
+import './EditModal.css'
 
 
 
@@ -10,6 +10,10 @@ const EditModal = ({ editModal, editModalHandler, editData }) => {
 
     const [editDataName, setEditDataName] = useState(editData.name);
     useEffect(() => { setEditDataName(editData.name)}, [editData.name] )
+    const [editDataType, setEditDataType] = useState(editData.productType);
+    useEffect(() => { setEditDataType(editData.productType)}, [editData.productType] )
+    const [editDataPrice, setEditDataPrice] = useState(editData.price);
+    useEffect(() => { setEditDataPrice(editData.price)}, [editData.price] )
 
     const userSignin = useSelector(state => state.userSignin)
     const { userInfo } = userSignin
@@ -27,11 +31,11 @@ const EditModal = ({ editModal, editModalHandler, editData }) => {
             opacity: 1,
             x: '-50%',
             y: '-50%',
-            transition: { delay: .2, duration: .75 }
+            transition: { delay: .2, duration: .5 }
         },
         exit: {
             x: '-100vw',
-            transition: { delay: .1, duration: .75 },
+            transition: { delay: .1, duration: .5 },
             opacity: 0
         },
         hiddenFade: {
@@ -69,27 +73,68 @@ const EditModal = ({ editModal, editModalHandler, editData }) => {
                     />
                     <motion.form
                     onSubmit={submitHandler} 
-                    className="edit-form-card"/*onSubmit={submitHandler}*/ 
+                    className="edit-form-card"
                     variants={containerVariants}
                     initial="hidden"
                     animate="visible2"
                     exit="exit"
                     >
-                      <ul >
-                        <li>
-                          <h2>Let's edit some shit</h2>
-                          <div>{editData.name}</div>
-                          <div>{editData._id}</div>
-                          <div>{editData.productType}</div>
-                          <div>{editData.price}</div>
-                          <label htmlFor="editDataName">Name</label>
-                          <input type="text" id="editDataName" name="editDataName" value={editDataName} onChange={(e) => setEditDataName(e.target.value)}>
-                          </input>
-                        </li>
-                      </ul>
-                      <button type="submit">SAVE</button>
+
+                      <h2>{editData.name}</h2>
+                      <div className="edit-form-card-id">Id: {editData._id}</div>
+                      
+                      <label htmlFor="editDataName">Name</label>
+                      <input 
+                      type="text" 
+                      id="editDataName" 
+                      name="editDataName" 
+                      value={editDataName || ""} 
+                      onChange={(e) => setEditDataName(e.target.value)}>
+                      </input>
+
+                      <label htmlFor="editDataType">Type</label>
+                      <input 
+                      type="text" 
+                      id="editDataType" 
+                      name="editDataType" 
+                      value={editDataType || ""} 
+                      onChange={(e) => setEditDataType(e.target.value)}>
+                      </input>
+
+                      <label htmlFor="editDataPrice">Name</label>
+                      <input 
+                      type="text" 
+                      id="editDataPrice" 
+                      name="editDataPrice" 
+                      value={editDataPrice || ""} 
+                      onChange={(e) => setEditDataPrice(e.target.value)}>
+                      </input>               
+                     
+                     <div style={{display: "flex"}} >
+                      <motion.button 
+                      type="submit"
+                      className="edit-modal-button"
+                      whileHover={{
+                        scale: 1.05,
+                        transition: { duration: .25 },
+                      }}
+                      >
+                      SAVE
+                      </motion.button>
                       {console.log("EDITDATA", editDataName)}
-                      <button type="reset" onClick={editModalHandler}>CANCEL</button>
+                      <motion.button 
+                      type="reset" 
+                      className="edit-modal-button"
+                      onClick={editModalHandler}
+                      whileHover={{
+                        scale: 1.05,
+                        transition: { duration: .25 },
+                      }}
+                      >
+                      CANCEL
+                      </motion.button>
+                     </div>
+
                     </motion.form>
                 </div>
             )}

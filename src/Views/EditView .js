@@ -81,8 +81,7 @@ const EditView = (props) => {
 
     return loading ? 
         
-            <Loader />
-         :
+        <Loader/> :
         
         error ? <div>{error}</div> :
 
