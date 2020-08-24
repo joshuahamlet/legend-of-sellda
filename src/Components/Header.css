@@ -100,14 +100,6 @@
         background-color: #1A1A39;
         color: #FFC774;        
     }
-
-    .header-hamburger-arrow {
-        position: absolute;
-        top: -1px;
-        left: 6px;
-        font-size: 40px;
-        font-weight: bolder;
-    }
 }
 
 @media screen and (max-width: 400px) {
@@ -152,6 +144,10 @@
 
 .nes-container a {
     margin-bottom: 10px;
+}
+
+.nes-container a:active {
+    color: white;
 }
 
 .nes-container::after {

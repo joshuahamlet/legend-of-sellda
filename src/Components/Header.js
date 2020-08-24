@@ -135,8 +135,8 @@ const Header = () => {
                 animate="headerVisible"
                 exit="headerExit"
                 >
-                    <div className="nes-container">
-                <p className="nes-title">MENU</p>
+                <div className="nes-container">
+                    <p className="nes-title">MENU</p>
                     <Link to={"/"} onClick={hamburgerToggleHandler}>HOME</Link>
                     <Link to={"/edit"} onClick={hamburgerToggleHandler}>EDIT</Link>
                     <Link to={"/cart/:id?"} onClick={hamburgerToggleHandler}>CART</Link>

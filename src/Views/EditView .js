@@ -4,6 +4,8 @@ import { listProducts } from '../Actions/productAction';
 import { PRODUCT_LIST_REQUEST } from '../Constants/productConstant';
 import { motion } from 'framer-motion'
 import EditModal from '../Components/EditModal'
+import lensoftruth from '../lensoftruth.png'
+import Loader from '../Components/Loader'
 import './EditView.css'
 
 const EditView = (props) => {
@@ -78,9 +80,9 @@ const EditView = (props) => {
     console.log(editData)
 
     return loading ? 
-        <div>
-            Hol' up...
-        </div> :
+        
+            <Loader />
+         :
         
         error ? <div>{error}</div> :
 
@@ -94,8 +96,25 @@ const EditView = (props) => {
         editData={editData}
         />
 
-        <input type="text" value={inputValue} onChange={(e) => setInputValue(e.target.value)} />
-        
+        <motion.div 
+        className="nes-container-container-edit"
+        variants={containerVariants}
+        initial="hidden"
+        animate="visible1"
+        exit="exit"
+        >
+            <div className="nes-container-edit">
+            <div className="nes-title-edit">SEARCH</div>
+            <div className="nes-edit">
+                <input 
+                type="text" 
+                value={inputValue} 
+                onChange={(e) => setInputValue(e.target.value)} />
+                <img src={lensoftruth} alt="search icon" />
+            </div>    
+            </div>
+        </motion.div>
+
         <motion.div className="edit-item-card"
         variants={containerVariants}
         initial="hidden"
@@ -120,7 +139,17 @@ const EditView = (props) => {
                         <td key={productData._id + "NM"}>{productData.name}</td>
                         <td key={productData._id + "PR"}>{productData.price}</td>
                         <td key={productData._id + "TP"}>{productData.productType}</td>
-                        <td key={productData._id + "BT"}><button onClick={() => editModalHandler(productData)} >EDIT</button></td>
+                        <td key={productData._id + "BT"}>
+                            <motion.button 
+                            onClick={() => editModalHandler(productData)} 
+                            className="edit-button" 
+                            whileHover={{
+                                scale: 1.05,
+                                transition: { duration: .25 },
+                            }}
+                            >EDIT
+                            </motion.button>
+                        </td>
                     </tr>
                 )}
             </tbody>

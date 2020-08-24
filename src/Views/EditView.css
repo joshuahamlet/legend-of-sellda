@@ -28,9 +28,94 @@
     color: var(--golden-1);
     background-color: var(--purple-3);
     border-radius: 15px;
+    border: 10px solid transparent;
+    border-image: url('../border-item.png') 9 12 9 12 stretch;
 }
 
 .edit-item-card th, .edit-item-card td {
     padding: 7px 10px;
     text-align: left;
+}
+
+.edit-button {
+    background-color: var(--purple-3);
+    color: var(--golden-1);
+    font-size: 20px;
+}
+
+.edit-button:hover {
+    color: white;
+}
+
+.nes-container-container-edit {
+    margin: 15px 25px;
+    background-color: var(--purple-3);
+    display: inline-block;
+    z-index: 2;
+}
+
+.nes-container-edit {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    margin: 10px;
+    color: var(--golden-1);
+    background-color: var(--purple-3);
+    border-color: var(--purple-1);
+    border-style: solid;
+    border-width: 4px;
+    border-image-slice: 3;
+}
+
+.nes-container-edit input {
+    font-family: inherit;
+    font-size: 20px;
+    background-color: var(--purple-1);
+    color: var(--golden-1);
+    padding: 3px;
+    padding-top: 5px;
+    margin: 20px 5px 15px 15px;
+    border-radius: 5px;
+}
+
+.nes-container-edit img {
+    margin: 3px 3px 3px 0px;
+}
+
+.nes-title-edit {
+    position: absolute;
+    top: 22px;
+    left: 10px;
+    width: 67px;
+    display: inline-block;
+    padding: 0 .5rem;
+    margin: -1.8rem 0 1rem;
+    font-size: 1rem;
+    color: var(--golden-1);
+    background-color: var(--purple-3);
+}
+
+.nes-edit {
+    display: flex;
+    align-items: center;
+}
+
+@media screen and (max-width: 725px) {
+    .edit-button {
+        font-size: 17px;
+    }
+}
+
+@media screen and (max-width: 450px) {
+    .edit-button {
+        font-size: 13px;
+    }
+    .edit-item-card {
+        margin: auto 10px;
+        margin-bottom: 10px;
+    }
+    .nes-container-container-edit {
+        margin: 15px 10px;
+    }
 }
