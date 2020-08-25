@@ -85,7 +85,7 @@ const ProductView = (props) => {
           >
           ORDER
           </motion.button> : 
-          <div className="product-card-order">Out of Stock</div> }
+          <div className="product-card-order-out">Out of Stock</div> }
         
           <div className="nes-container-product">
             <div className="nes-container-product-title">Description</div>

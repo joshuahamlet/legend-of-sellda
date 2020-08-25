@@ -50,4 +50,24 @@ button {
   --purple-2: #42427F;
   --purple-3: #1A1A39;
   --golden-1: #FFC774;
+  --errorbro: #c55454;
+
+  --scrollbarBG: var(--purple-3);
+  --thumbBG: var(--purple-1)
+}
+
+body::-webkit-scrollbar {
+  width: 11px;
+}
+body {
+  scrollbar-width: thin;
+  scrollbar-color: var(--thumbBG) var(--scrollbarBG);
+}
+body::-webkit-scrollbar-track {
+  background: var(--scrollbarBG);
+}
+body::-webkit-scrollbar-thumb {
+  background-color: var(--thumbBG) ;
+  border-radius: 6px;
+  border: 3px solid var(--scrollbarBG);
 }

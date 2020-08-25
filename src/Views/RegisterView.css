@@ -31,7 +31,7 @@
 }
 
 .form-error {
-    color: rgb(197, 84, 84);
+    color: var(--errorbro);
 }
 
 .form-button {
