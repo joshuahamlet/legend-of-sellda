@@ -1,12 +1,5 @@
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
 .App-container {
-  background-color: #464b55;
+  background-color: var(--purple-2);
   background-image: url(./background3.png);
   background-repeat: repeat;
   min-height: 90vh;
@@ -24,19 +17,6 @@
 @media screen and (max-width: 400px) {
   .App-container {
     background-image: url(./background1.png);
-  }
-}
-
-.App-link {
-  color: #FFE493;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
   }
 }
 
@@ -59,9 +39,11 @@ button {
 body::-webkit-scrollbar {
   width: 11px;
 }
+
 body {
   scrollbar-width: thin;
   scrollbar-color: var(--thumbBG) var(--scrollbarBG);
+  -webkit-overflow-scrolling: touch
 }
 body::-webkit-scrollbar-track {
   background: var(--scrollbarBG);
@@ -70,4 +52,8 @@ body::-webkit-scrollbar-thumb {
   background-color: var(--thumbBG) ;
   border-radius: 6px;
   border: 3px solid var(--scrollbarBG);
+}
+
+html body {
+  box-sizing: border-box;
 }

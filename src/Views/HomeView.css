@@ -51,6 +51,13 @@
     transform: translateY(6px);
 }
 
+@media screen and (max-width: 725px) {
+    .rupee {
+        width: 17px;
+        height: auto;
+    }
+}
+
 @media screen and (max-width: 540px) {
     .item-card {
         height: 150px;
@@ -69,5 +76,16 @@
         width: 75px;
         padding-bottom: 20px;
         
+    }
+    .rupee {
+        width: 13px;
+        height: auto;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .rupee {
+        width: 13px;
+        height: auto;
     }
 }

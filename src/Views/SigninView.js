@@ -45,7 +45,8 @@ const initialValues = {
     visible: {
         opacity: 1,
         x: '0vw',
-        transition: { delay: .1, duration: .75 }
+        transition: { delay: .1, duration: .75 },
+        transitionEnd: { finalized: "yes" }
     },
     exit: {
         x: '-200vw',
@@ -53,9 +54,11 @@ const initialValues = {
     }
   }
   
+  const animationFinalized = containerVariants.visible.transitionEnd.finalized
+
   return (
   
-  <div className="form-container">
+  <div className="form-container" style={ animationFinalized ? {overflow: "hidden"} : ""}>
 
     <motion.div className="form-card"
       variants={containerVariants}

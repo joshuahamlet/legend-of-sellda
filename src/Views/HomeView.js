@@ -41,7 +41,8 @@ const HomeView = (props) => {
         visible3: {
             opacity: 1,
             x: '0vw',
-            transition: { delay: .3, duration: .75 }
+            transition: { delay: .3, duration: .75 },
+            transitionEnd: {finalized: "yes"}
         },
         exit: {
             x: '-100vw',
@@ -61,6 +62,7 @@ const HomeView = (props) => {
         }
     }
     
+    const animationFinalized = containerVariants.visible3.transitionEnd.finalized
 
     return loading ? 
         <Loader/>:
@@ -70,7 +72,7 @@ const HomeView = (props) => {
 
         
         
-        <div className="home-container">
+        <div className="home-container" style={ animationFinalized ? {overflow: "hidden"} : ""}>
         <motion.div className="item-card-title"
         variants={containerVariants}
         initial="hiddenFade"

@@ -47,17 +47,8 @@ const EditView = (props) => {
         visible1: {
             opacity: 1,
             x: '0vw',
-            transition: { delay: .1, duration: .75 }
-        },
-        visible2: {
-            opacity: 1,
-            x: '0vw',
-            transition: { delay: .2, duration: .75 }
-        },
-        visible3: {
-            opacity: 1,
-            x: '0vw',
-            transition: { delay: .3, duration: .75 }
+            transition: { delay: .1, duration: .75 },
+            transitionEnd: { finalized: "yes" }
         },
         exit: {
             x: '-100vw',
@@ -77,7 +68,7 @@ const EditView = (props) => {
         }
     }
     
-    console.log(editData)
+    const animationFinalized = containerVariants.visible1.transitionEnd.finalized
 
     return loading ? 
         
@@ -86,7 +77,7 @@ const EditView = (props) => {
         error ? <div>{error}</div> :
 
         
-        <div className="edit-container">
+        <div className="edit-container" style={ animationFinalized ? {overflow: "hidden"} : ""}>
 
         <EditModal 
         editModal={editModal} 
