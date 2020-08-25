@@ -66,10 +66,6 @@ const ProductView = (props) => {
             Price: <img className="rupee" src={rupee} alt="rupee" /> {details.price} 
           </div>
 
-          <div className="product-card-rating">
-            {details.rating}
-          </div>
-
           <div className="product-card-quantity"> 
             Qty: <select value={quantity*1} onChange={(e) => { setQuantity(e.target.value)}}>
                     {[...Array(details.numberInStock).keys()].map(x =>
@@ -78,7 +74,24 @@ const ProductView = (props) => {
                  </select> 
           </div>
 
-          { details.numberInStock > 0 ? <button className="product-card-order" onClick={addToCartHandler}>ORDER</button> : <div>Sorry dude, we out</div> }
+          { details.numberInStock > 0 ? 
+          <motion.button 
+          className="product-card-order" 
+          onClick={addToCartHandler}
+          whileHover={{
+            scale: 1.05,
+            transition: { duration: .25 },
+          }}
+          >
+          ORDER
+          </motion.button> : 
+          <div className="product-card-order">Out of Stock</div> }
+        
+          <div className="nes-container-product">
+            <div className="nes-container-product-title">Description</div>
+              {details.description}
+          </div>
+        
         </motion.div>
     
         </div>
@@ -86,3 +99,7 @@ const ProductView = (props) => {
     )}
 
 export default ProductView
+
+//<div className="product-card-rating">
+//{details.rating}
+//</div>

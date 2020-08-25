@@ -13,6 +13,7 @@
     margin: 10px;
     height: 60%;
     max-width: 500px;
+    min-width: 300px;
     display: grid;
     grid-template-columns: repeat(12, 1fr);
     grid-column-gap: 5px;
@@ -22,12 +23,25 @@
     border: 15px solid transparent;
     border-image: url('../border-item.png') 9 12 9 12 stretch;
     image-rendering: pixelated;
+    box-sizing: border-box;
+}
+
+.product-card option {
+    background-color: black;
+    color: var(--golden-1);
+    
+}
+
+.product-card select {
+    background-color: black;
+    color: var(--golden-1);
+    transform: translateY(-3px);
 }
 
 .product-card-image {
     width: 100%;
     grid-column: 2 / 7;
-    grid-row: 2 / 10;
+    grid-row: 2 / 8;
     justify-self: start;
     align-self: start;
     overflow: hidden;
@@ -44,9 +58,10 @@
 .product-card-price {
     grid-column: 8 / 12;
     grid-row: 3 / 4;
-    align-self: start;
+    align-self: center;
     justify-self: start;
 }
+
 
 .product-card-rating {
     grid-column: 8 / 12;
@@ -57,14 +72,75 @@
 
 .product-card-quantity {
     grid-column: 8 / 12;
-    grid-row: 5 / 6;
+    grid-row: 4 / 5;
     align-self: start;
     justify-self: start;
+    align-self: center;
 }
 
 .product-card-order {
     grid-column: 8 / 12;
-    grid-row: 6 / 7;
+    grid-row: 5 / 6;
     align-self: start;
     justify-self: start;
+    background-color: var(--purple-3);
+    color: var(--golden-1);
+    font-size: 20px;
+}
+
+.product-card-order:hover {
+    color: white;
+}
+
+.nes-container-product {
+    height: 100%;
+    width: 100%;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    color: var(--golden-1);
+    background-color: var(--purple-3);
+    border-color: var(--purple-1);
+    border-style: solid;
+    border-width: 4px;
+    border-image-slice: 3;
+    grid-column: 1 / 13;
+    grid-row: 8 / 13;
+    box-sizing: border-box;
+    padding: 30px 20px;
+}
+
+.nes-container-product-title {
+    background-color: var(--purple-3);
+    font-size: 20px;
+    padding: 0px 5px;
+    position: absolute;
+    top: -10px;
+    left: 15px;
+}
+
+@media screen and (max-width: 725px) {
+    .product-card-price img {
+        width: 17px;
+        height: auto;
+    }
+    .product-card-order {
+        font-size: 17px;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .product-card-order {
+        font-size: 13px;
+    }
+    .product-card-price img {
+        width: 13px;
+        height: auto;
+    }
+    .product-card select {
+        background-color: black;
+        color: var(--golden-1);
+        transform: translateY(0px);
+    }
 }
