@@ -138,8 +138,12 @@ const Header = () => {
                 <div className="nes-container">
                     <p className="nes-title">MENU</p>
                     <Link to={"/"} onClick={hamburgerToggleHandler}>HOME</Link>
-                    <Link to={"/edit"} onClick={hamburgerToggleHandler}>EDIT</Link>
                     <Link to={"/cart/:id?"} onClick={hamburgerToggleHandler}>CART</Link>
+                    {
+                    !userInfo ? "" : 
+                    !userInfo.isAdmin ? "" :
+                    <Link to={"/edit"} onClick={hamburgerToggleHandler}>EDIT</Link>
+                }
                     {
                     userInfo ? <div>{userInfo.name}</div> :
                     userInfoNew ? <div>{userInfoNew.name}</div> :
