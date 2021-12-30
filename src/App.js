@@ -14,7 +14,8 @@ import axios from 'axios'
 
 function App() {
   const location = useLocation()
-  axios.defaults.baseURL = "https://cors-anywhere.herokuapp.com/https://legend-of-sellda.herokuapp.com"
+  //axios.defaults.baseURL = "https://cors-anywhere.herokuapp.com/https://legend-of-sellda.herokuapp.com"
+  axios.defaults.baseURL = "https://awesomeproxy.herokuapp.com/legend-of-sellda.herokuapp.com"
 
   return (
     
